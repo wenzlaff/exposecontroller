@@ -1,5 +1,5 @@
-Image: "gcr.io/jenkinsxio/exposecontroller"
-ImageTag: "latest"
+Image: "harbor.biotronik.dev/jx/exposecontroller"
+ImageTag: "2.3.109-p1"
 BackoffLimit: 5
 Annotations: {}
   # use value of `path` to use path based ingress
