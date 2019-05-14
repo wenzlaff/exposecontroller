@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "jenkins-go"
+    }
     stages {
         stage('CI Build and Test') {
             when {
