@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 dir ('/home/jenkins/go/src/github.com/jenkins-x/exposecontroller') {
-                    git "https://github.com/jenkins-x/exposecontroller"
+                    git "https://github.com/wenzlaff/exposecontroller"
                     
                     sh "echo \$(jx-release-version) > version/VERSION"
                     sh "git add version/VERSION"
