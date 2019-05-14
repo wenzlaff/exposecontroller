@@ -8,12 +8,12 @@ pipeline {
                 branch 'PR-*'
             }
             steps {
-                dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller') {
+                // dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller') {
                     checkout scm
                     sh "make test"
                     sh "make"
-                }
-                dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller/charts/exposecontroller') {
+                // }
+                dir ('charts/exposecontroller') {
                     sh "helm init --client-only"
 
                     sh "make build"
@@ -31,7 +31,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller') {
+                // dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller') {
                     git "https://github.com/wenzlaff/exposecontroller"
                     
                     sh "echo \$(jx-release-version) > version/VERSION"
@@ -39,8 +39,8 @@ pipeline {
                     sh "git commit -m 'release \$(cat version/VERSION)'"
 
                     sh "GITHUB_ACCESS_TOKEN=$GH_CREDS_PSW make release"
-                }
-                dir ('/home/jenkins/go/src/github.com/wenzlaff/exposecontroller/charts/exposecontroller') {
+                // }
+                dir ('charts/exposecontroller') {
                     sh "helm init --client-only"
                     sh "make release"
                 }
