@@ -47,4 +47,9 @@ pipeline {
             }
         }
     }
+    post {
+            failure {
+                input('OK to continue?')
+            }
+        }
 }
